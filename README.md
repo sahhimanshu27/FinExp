@@ -1,2 +1,3 @@
 # FinExp
-Personal Financing App using MERN
+
+Personal Financing App using MERN.
