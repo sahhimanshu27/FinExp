@@ -6,6 +6,11 @@ import rateLimit from "express-rate-limit";
 import dotenv from "dotenv";
 import path from "path";
 
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Load environment variables
 dotenv.config();
 
@@ -36,8 +41,8 @@ app.use(
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
-// // Static files
-// app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
+// Static files
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 // Health check endpoint
 app.get("/health", (req, res) => {
